@@ -2,15 +2,27 @@
 #https://realpython.com/python-speech-recognition/
 
 #speech recognise
-import speech_recognition as sr
+import speech_recognition
+import pyttsx3
 
 # initialize the recognizer
-r = sr.Recognizer()
+r = speech_recognition.Recognizer()
 
-with sr.Microphone() as source:
-    # read the audio data from the default microphone
-    audio_data = r.record(source, duration=5)
-    print("Recognizing...")
-    # convert speech to text
-    text = r.recognize_google(audio_data, language = 'ru-RU', show_all = False)
-    print(text)
+while True:
+
+    try:
+
+        with speech_recognition.Microphone(13) as source:
+
+            r.adjust_for_ambient_noise(source, duration=0.2)
+            audio = r.listen(source)
+
+            text = r.recognize_google(audio)
+            text = text.lower()
+
+            print(f"Recognized {text}")
+
+    except speech_recognition(Exception).UnknownValueError():
+
+        r = speech_recognition.Recognizer()
+        continue
