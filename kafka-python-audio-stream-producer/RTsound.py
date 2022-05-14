@@ -1,3 +1,8 @@
+#documentation for python-sounddevice
+#https://readthedocs.org/projects/python-sounddevice/downloads/pdf/latest/
+#how to install sounddevice
+#https://github.com/spatialaudio/python-sounddevice/issues/89
+
 import argparse
 import logging
 import time
