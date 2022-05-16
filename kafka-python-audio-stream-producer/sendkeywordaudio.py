@@ -9,6 +9,8 @@ import json
 import time
 from time import time_ns
 
+import argparse
+
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
 
@@ -17,10 +19,14 @@ topic = 'mongotest16'
 
 timestamp = time_ns()
 
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--input-device', type=int, default = '0' , help='input device ID or substring')
+args = parser.parse_args()
+
 def fnc1():
     r = speech_recognition.Recognizer()
 
-    with speech_recognition.Microphone(6) as source:
+    with speech_recognition.Microphone(args.input_device) as source:
 
         a = ''
         r.adjust_for_ambient_noise(source, duration=0.2)
