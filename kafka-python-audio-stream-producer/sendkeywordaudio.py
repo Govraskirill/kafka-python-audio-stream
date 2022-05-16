@@ -56,7 +56,7 @@ def keyword_to_kafka(keyword):
     if 'open' in keyword:
         print (f"Sent keyword {keyword} on kafka topic")
         #send to kafka topic info with keyword and timestamp
-        future = producer.send(topic, value = {'value': keyword, 'timestamp': timestamp})
+        future = producer.send(topic, value = {'keyword': keyword, 'timestamp': timestamp})
 
 while True:
     voice_data_a = fnc1()
