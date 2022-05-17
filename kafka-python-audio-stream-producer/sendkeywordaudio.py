@@ -20,13 +20,13 @@ topic = 'mongotest16'
 timestamp = time_ns()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--input-device', type=int, default = '0' , help='input device ID or substring')
+parser.add_argument('-i', type=int, help='input device ID or substring')
 args = parser.parse_args()
 
 def fnc1():
     r = speech_recognition.Recognizer()
 
-    with speech_recognition.Microphone(args.input_device) as source:
+    with speech_recognition.Microphone(args.i) as source:
 
         a = ''
         r.adjust_for_ambient_noise(source, duration=0.2)

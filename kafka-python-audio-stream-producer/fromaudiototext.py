@@ -22,7 +22,11 @@ while True:
 
             print(f"Recognized {text}")
 
-    except speech_recognition(Exception).UnknownValueError():
+            if 'what is your name' in text:
+                print('My name is PatientCare')
+
+    except speech_recognition.UnknownValueError:
 
         r = speech_recognition.Recognizer()
         continue
+

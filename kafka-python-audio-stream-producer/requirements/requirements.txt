@@ -1,2 +1,5 @@
 kafka-python
 sounddevice
+SpeechRecognition
+pyttsx3
+pyaudio
